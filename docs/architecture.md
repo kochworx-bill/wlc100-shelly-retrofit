@@ -9,28 +9,30 @@ nav_order: 4
 
 ## The big picture
 
-```
-Mean Well LRS-100-24 (24V DC)
-        |
-        v
-Shared terminal block distribution module
-        |
-        +-----------------------------+
-        v                             v
-Wall button  OR  Shelly app/automation
-        |
-        v
-  Shelly 2PM Gen4  (S1/S2 inputs, O1/O2 outputs)
-        |
-        v
-  OONO F-1020  (FWD/REV trigger inputs)
-        |
-        v
-  KEM 140 motor  (wired directly to motor terminals,
-                   bypassing the internal motor PCB)
-
-  (optional) RC snubber across motor leads, spliced in
-  at the terminal block before the run to the motor
+```mermaid
+graph TD
+    PSU["Mean Well LRS-100-24<br/>(24V DC)"]
+    TERM["Shared terminal block<br/>distribution module"]
+    WALL["Wall button<br/>OR<br/>Shelly app/automation"]
+    SHELLY["Shelly 2PM Gen4<br/>(S1/S2 inputs, O1/O2 outputs)"]
+    OONO["OONO F-1020<br/>(FWD/REV trigger inputs)"]
+    MOTOR["KEM 140 motor<br/>(wired directly to motor terminals,<br/>bypassing internal motor PCB)"]
+    SNUB["(optional)<br/>RC snubber<br/>across motor leads"]
+    
+    PSU --> TERM
+    TERM --> WALL
+    TERM --> SHELLY
+    WALL --> SHELLY
+    SHELLY --> OONO
+    OONO --> MOTOR
+    OONO -.-> SNUB
+    SNUB -.-> MOTOR
+    
+    style PSU fill:#e1f5ff
+    style TERM fill:#f3e5f5
+    style SHELLY fill:#fff3e0
+    style OONO fill:#e8f5e9
+    style MOTOR fill:#fce4ec
 ```
 
 *(Add a photo or hand-drawn diagram of this signal path to `images/` and
