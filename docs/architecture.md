@@ -28,11 +28,12 @@ graph TD
     OONO -.-> SNUB
     SNUB -.-> MOTOR
     
-    style PSU fill:#e1f5ff
-    style TERM fill:#f3e5f5
-    style SHELLY fill:#fff3e0
-    style OONO fill:#e8f5e9
-    style MOTOR fill:#fce4ec
+    style PSU fill:#e1f5ff,color:#000000
+    style TERM fill:#f3e5f5,color:#000000
+    style SHELLY fill:#fff3e0,color:#000000
+    style OONO fill:#e8f5e9,color:#000000
+    style MOTOR fill:#fce4ec,color:#000000
+    style SNUB color:#000000
 ```
 
 *(Add a photo or hand-drawn diagram of this signal path to `images/` and
