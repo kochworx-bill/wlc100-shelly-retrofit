@@ -20,20 +20,29 @@ buttons, and any automations all work together correctly.
 2. Give it a clear name per window (e.g. "Skylight - Living Room") so you
    don't mix up channels later.
 
-## Step 2: Create a Cover component (the confusing part)
+## Step 2: Switch the device profile to Cover
 
-This is the step that trips almost everyone up: Cover mode is **not** found
-where you'd expect, under Device Settings or Components.
+Cover mode is set from the Shelly device's own settings, not from a
+separate "create component" flow:
 
-1. From the Shelly app's **Home screen**, tap **Create new component**.
-2. Select **Cover** from the component type list.
-3. The app will walk you through assigning which physical outputs and
-   inputs belong to this Cover component.
+1. Open the device in the Shelly app and go to **Device Settings**.
+2. Select the **Gear Configuration** blade from the left-hand nav selector.
+3. Under **Device Profile**, switch it from **Switch** to **Cover**.
 
-If you go looking for this under "Device Settings" or an existing
-"Components" list, you won't find it — Cover components are created fresh
-from the Home screen, not configured after the fact on an existing switch
-component.
+While you're in this settings area, also set:
+
+- **Input Type**: **Switch** (not "Button") — the wall pushbuttons are
+  wired as maintained/latching wall switches feeding S1/S2, not momentary
+  buttons, so the Input Type must match.
+- **Movement Time Limits**: start conservatively at **15s** and re-verify
+  after calibration (Step 4). Across the reference build's windows, actual
+  calibrated times land around **16, 16.5, and 16.9 seconds**, so 15s is a
+  safe starting ceiling that won't clip a real travel cycle once
+  calibrated.
+- **Swap Inputs**: because the motor leads landing on the OONO M1/M2
+  terminals may not have a known polarity/orientation, enable **Swap
+  Inputs** if open/close come out reversed in software — this avoids
+  having to physically re-wire the motor leads to fix the direction.
 
 ## Step 3: Assign outputs and inputs
 
@@ -46,8 +55,8 @@ When prompted, assign:
 
 Double-check open maps to open and close maps to close — if they're
 swapped, your wall button will close the skylight when you press "open."
-This is easy to fix in software without re-wiring, so don't worry if you
-need to flip it after testing.
+This is easy to fix in software (see **Swap Inputs** in Step 2) without
+re-wiring, so don't worry if you need to flip it after testing.
 
 ## Step 4: Calibrate travel time
 
@@ -60,24 +69,39 @@ between fully open and fully closed.
    "Calibrate" or "Set limits").
 2. Let the motor run a full open and full close cycle uninterrupted during
    calibration.
-3. Expect a measured travel time in the neighborhood of **16–17 seconds**,
+3. Expect a measured travel time in the neighborhood of **16–17 seconds**
+   (the reference build's windows calibrated to 16s, 16.5s, and 16.9s),
    though this will vary slightly window to window depending on sash size
    and mechanical friction. Consistency between open and close times for the
    same window is a good sign of healthy mechanics.
+4. Revisit the **Movement Time Limits** value from Step 2 once you know the
+   real calibrated time for this window, so the limit isn't cutting travel
+   short.
 
 ## Step 5: Understand how end-of-travel is detected
 
 Because this retrofit bypasses the KEM 140's internal PCB (which used to
 house the physical limit switches), the Shelly has no direct signal telling
-it "fully open" or "fully closed." Instead, it relies on:
+it "fully open" or "fully closed." It relies on the **calibrated travel
+time** from Step 4 to know when to stop driving the motor.
 
-- The **calibrated travel time** from Step 4, and
-- Its **built-in current-spike / obstacle detection**, which senses the
-  motor stalling against its mechanical end-stop and cuts power
+The Shelly 2PM Gen4 documentation describes built-in current-spike /
+obstacle detection that should sense the motor stalling against its
+mechanical end-stop and cut power. **In practice, on this build, that
+detection has not been observed to trigger.** Instead, at end of travel the
+motor keeps running against the mechanical stop until the calibrated time
+elapses:
 
-This works, but it's a known limitation of the current build — see
-[Limitations](limitations.md) for details and the planned fix (external
-roller-lever micro limit switches).
+- Gear strain audibly builds (a whining sound) as the motor continues
+  driving against the stop.
+- The window mechanism clunks, as if the stop is being run over/rolled
+  past.
+- Strain releases briefly, then builds again as the motor keeps pushing.
+
+This is harder on the gears and stop hardware than the current-spike
+detection is supposed to allow, and it's a known limitation of the current
+build — see [Limitations](limitations.md) for details and the planned fix
+(external roller-lever micro limit switches).
 
 ## Step 6: Test from the app and wall buttons together
 
