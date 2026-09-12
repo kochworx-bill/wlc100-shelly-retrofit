@@ -36,9 +36,6 @@ graph TD
     style SNUB color:#000000
 ```
 
-*(Add a photo or hand-drawn diagram of this signal path to `images/` and
-reference it here, e.g. `![Signal path diagram](../images/signal-path.png)`)*
-
 Every window gets its own Shelly 2PM Gen4 and its own OONO F-1020 — see
 [Troubleshooting](troubleshooting.md) for why sharing one Shelly/OONO pair
 across two motors causes overcurrent trips. All windows share a single
