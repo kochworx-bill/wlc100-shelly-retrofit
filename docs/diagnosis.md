@@ -27,6 +27,8 @@ closet, or utility space near the skylights). You're looking for:
 
 If your label matches, you have the same controller this guide addresses.
 
+![WLC 100 wire connections and molded terminal label](images/WLC100-wire-connections.jpg)
+
 ## Step 2: Confirm your motors are KEM 140
 
 Check the motor housing (visible at the skylight, usually along one edge of
@@ -37,6 +39,10 @@ the sash) for:
   to push the window open)
 - A simple **two-wire connection** running back to the controller (no data
   bus, just two conductors)
+
+![KEM 140 motor label showing UL 17C2 rating](images/kem140-motor-label.jpg)
+
+![KEM 140 motor overview with rack-and-pinion drive](images/kem140-motor-overview.jpg)
 
 ## Step 3: Test the power supply
 

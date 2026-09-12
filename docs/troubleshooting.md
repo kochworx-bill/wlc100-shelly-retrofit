@@ -73,6 +73,8 @@ specific unit was originally used for, even after you've removed the WLC
 controller — it's genuinely useful during the identification steps in
 [Diagnosis](diagnosis.md) and [Build Guide](build-guide.md).
 
+![WLC 100 wire connections and molded terminal diagram](images/WLC100-wire-connections.jpg)
+
 ---
 
 Have another pitfall to add? This list reflects one real-world install —

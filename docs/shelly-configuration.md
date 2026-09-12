@@ -22,27 +22,26 @@ buttons, and any automations all work together correctly.
 
 ## Step 2: Switch the device profile to Cover
 
-Cover mode is set from the Shelly device's own settings, not from a
-separate "create component" flow:
+Cover mode is set from the Shelly device's own settings:
 
-1. Open the device in the Shelly app and go to **Device Settings**.
-2. Select the **Gear Configuration** blade from the left-hand nav selector.
+1. Open the device in the Shelly app and go to **Device Settings** by clicking the Shelly device.
+2. Select the **Gear Configuration** blade from the left-hand navigation selector.
 3. Under **Device Profile**, switch it from **Switch** to **Cover**.
 
 While you're in this settings area, also set:
 
-- **Input Type**: **Switch** (not "Button") — the wall pushbuttons are
-  wired as maintained/latching wall switches feeding S1/S2, not momentary
-  buttons, so the Input Type must match.
+- **Input Type**: **Switch** The author's setup uses momentary rocker switches wired to S1/S2.  If using doorbell-type buttons (2 per window) you may need to use type "Button" setting.  
 - **Movement Time Limits**: start conservatively at **15s** and re-verify
   after calibration (Step 4). Across the reference build's windows, actual
   calibrated times land around **16, 16.5, and 16.9 seconds**, so 15s is a
   safe starting ceiling that won't clip a real travel cycle once
   calibrated.
-- **Swap Inputs**: because the motor leads landing on the OONO M1/M2
+- **Reverse Directions**: because the motor leads landing on the OONO M1/M2
   terminals may not have a known polarity/orientation, enable **Swap
-  Inputs** if open/close come out reversed in software — this avoids
+  Inputs** if open/close come out reversed — this avoids
   having to physically re-wire the motor leads to fix the direction.
+
+![Shelly Cover device profile setting in the app](images/Shelly-Cover-Setting.JPEG)
 
 ## Step 3: Assign outputs and inputs
 
