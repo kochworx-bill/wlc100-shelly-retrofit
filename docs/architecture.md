@@ -3,6 +3,7 @@ layout: page
 title: Architecture
 permalink: /docs/architecture/
 nav_order: 4
+icon: /docs/images/architecture-icon.jpg
 ---
 
 # System Overview and Signal Path

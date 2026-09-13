@@ -3,6 +3,7 @@ layout: page
 title: Diagnosis
 permalink: /docs/diagnosis/
 nav_order: 2
+icon: /docs/images/diagnosis-icon.jpg
 ---
 
 # Diagnosis: Is This Actually Your Problem?

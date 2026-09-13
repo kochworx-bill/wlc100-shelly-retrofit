@@ -17,10 +17,26 @@ $brand-accent-light: #fef3c7;
   border-bottom: 3px solid $brand-accent;
 }
 
+// Stack the title above the nav row (instead of minima's default
+// title-left/nav-right single row), and left-align both so the title
+// sits directly above the first nav button.
+.site-header .wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .site-title,
 .site-title:visited {
+  float: none;
   color: #fff !important;
   font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.site-nav {
+  float: none;
+  width: 100%;
 }
 
 .site-nav .menu-icon svg path {
@@ -36,6 +52,7 @@ $brand-accent-light: #fef3c7;
     flex-wrap: nowrap;
     align-items: center;
     gap: 0.4rem;
+    margin-left: 0;
   }
 
   .page-link,
@@ -56,6 +73,19 @@ $brand-accent-light: #fef3c7;
       text-decoration: none;
     }
   }
+
+  // "Home" is always the first pill in the trigger row (see
+  // _includes/header.html) — give it a filled accent style so it reads as
+  // the primary/anchor action distinct from the page links.
+  .trigger .page-link:first-child {
+    background: $brand-accent;
+    border-color: $brand-accent;
+    font-weight: 700;
+
+    &:hover {
+      background: darken(#d97706, 8%);
+    }
+  }
 }
 
 // On narrow viewports, fall back to the theme's default stacked hamburger
@@ -64,6 +94,22 @@ $brand-accent-light: #fef3c7;
   .site-nav .trigger {
     flex-wrap: wrap;
   }
+}
+
+// Per-page icon shown next to the page's <h1> title (see _layouts/page.html
+// and each docs/*.md file's `icon:` front matter).
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.page-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
 }
 
 // Content area: slightly warmer page background and card-like content

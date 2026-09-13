@@ -3,6 +3,7 @@ layout: page
 title: Build Guide
 permalink: /docs/build-guide/
 nav_order: 5
+icon: /docs/images/build-guide-icon.jpg
 ---
 
 # Build Guide: Wiring and Assembly

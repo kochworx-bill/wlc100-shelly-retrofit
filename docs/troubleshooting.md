@@ -3,6 +3,7 @@ layout: page
 title: Troubleshooting
 permalink: /docs/troubleshooting/
 nav_order: 7
+icon: /docs/images/troubleshooting-icon.jpg
 ---
 
 # Troubleshooting: Known Pitfalls and Fixes

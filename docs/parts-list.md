@@ -3,6 +3,7 @@ layout: page
 title: Parts List
 permalink: /docs/parts-list/
 nav_order: 3
+icon: /docs/images/parts-list-icon.jpg
 ---
 
 # Bill of Materials

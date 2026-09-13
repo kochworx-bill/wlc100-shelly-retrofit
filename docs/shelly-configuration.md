@@ -3,6 +3,7 @@ layout: page
 title: Shelly Configuration
 permalink: /docs/shelly-configuration/
 nav_order: 6
+icon: /docs/images/shelly-config-icon.jpg
 ---
 
 # Shelly App/Web Setup Walkthrough

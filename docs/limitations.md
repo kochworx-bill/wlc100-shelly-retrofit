@@ -3,6 +3,7 @@ layout: page
 title: Limitations
 permalink: /docs/limitations/
 nav_order: 8
+icon: /docs/images/limitations-icon.jpg
 ---
 
 # Known Limitations and Future Improvements
