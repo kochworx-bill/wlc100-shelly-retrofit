@@ -39,7 +39,16 @@ windows. This is reflected in the [Parts List](parts-list.md) — the
 per-window quantities aren't just for independent control, they're required
 to avoid this overcurrent condition.
 
-The author does note however, that even with 1 Shelly 2PM GEN4 per window, running more than 1 window at a time, even when they're not starting at the same time, will cause an current overdraw condition and stop both mid-travel.  This may be the Mean Well failing to provide enough amperage or another condition.  For reliable operation the author defaults to operating only one window at a time.  
+**This fix is necessary but not sufficient on its own.** Even with a
+dedicated Shelly and OONO per motor, the author has observed that running
+two windows' motors at the same time — even when the commands aren't sent
+at the exact same instant — can still trip an overcurrent condition and
+stop both windows mid-travel. This points to the **shared Mean Well
+LRS-100-24 power supply** running out of headroom when two motors draw
+current simultaneously, rather than a per-channel Shelly/OONO problem. For
+reliable operation, the author's practice is to operate only one window at
+a time — this is a workflow habit, not an additional wiring fix, and it's
+the current recommendation until a higher-capacity shared supply is tested.
 
 ## 3. Don't trust wire color at the WLC 100 terminal block
 

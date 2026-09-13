@@ -20,7 +20,7 @@ icon: /docs/images/build-guide-icon.jpg
   the disclaimer on the [home page](../index.md) before proceeding.
 
   ### Suggestion - Photograph Existing Setup
-  A lesson learned is to photograph everything before dismantaling the old WLC-100 
+  A lesson learned is to photograph everything before dismantling the old WLC-100 
   and disconnecting wires.  Using small paper labels with string to number the wires, they were tracked in a scratch ledger that was referred back to when
   wiring the new setup.  
 
@@ -109,7 +109,7 @@ Repeat this step for each window. Refer to the full wiring table in
    rest of the wiring.
 7. Wire the momentary pushbuttons for manual control (see Step 5 below).
 
-At this point you can refernce the Wiring Summary Table in the Appendix to confirm your connections.
+At this point you can reference the Wiring Summary Table in the Appendix to confirm your connections.
 
 
 
@@ -182,9 +182,9 @@ Once a window's Cover component is calibrated and tested from the app,
 button, and any automations you plan to use, secure the enclosure and move
 to the next window, repeating Steps 2–7.
 
-# Appendix
+## Appendix
 
-## Wiring Summary Table
+### Wiring Summary Table
 
 | From | To |
 |---|---|
@@ -210,13 +210,13 @@ to the next window, repeating Steps 2–7.
 > convention. Always verify against the physical label printed on your own
 > unit before connecting power.
 
-## Author's Completed Control Panel (2 Windows)
+### Author's Completed Control Panel (2 Windows)
 
 This shows the author's base configuration for 2 windows.  
 
 ![Completed control panel for one window](images/control-panel-complete.jpg)
 
-## Author's 4-Window Control Board
+### Author's 4-Window Control Board
 
 ![Completed control panel across all four windows](images/4-window-control-panel-complete.JPEG)
 

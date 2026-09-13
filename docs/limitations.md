@@ -49,9 +49,15 @@ the Covers closed automatically. For that automation to close a window to a
 sensible position (rather than just blindly commanding "closed" on a device
 that may already be mid-travel), each Cover needs to have gone through the
 full calibration routine in
-[Shelly Configuration, Step 4](shelly-configuration.md#step-4-calibrate-travel-time)
+[Shelly Configuration, Step 3](shelly-configuration.md#step-3-calibrate-travel-time)
 so its reported open percentage is accurate — this calibration is the
 remaining prerequisite before rain-triggered automation can be added.
+
+See also the note on running multiple windows simultaneously in
+[Troubleshooting](troubleshooting.md#2-overcurrent-trip-from-wiring-two-motors-to-one-shelly-output) —
+any rain-close automation covering more than one window will need to
+sequence windows one at a time rather than commanding them all closed at
+once.
 
 ## Per-window hardware cost
 
