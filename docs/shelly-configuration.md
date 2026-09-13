@@ -37,27 +37,13 @@ While you're in this settings area, also set:
   safe starting ceiling that won't clip a real travel cycle once
   calibrated.
 - **Reverse Directions**: because the motor leads landing on the OONO M1/M2
-  terminals may not have a known polarity/orientation, enable **Swap
-  Inputs** if open/close come out reversed — this avoids
+  terminals may not have a known polarity/orientation, enable **Reverse Directions** if open/close come out reversed — this avoids
   having to physically re-wire the motor leads to fix the direction.
 
 ![Shelly Cover device profile setting in the app](images/Shelly-Cover-Setting.JPEG)
 
-## Step 3: Assign outputs and inputs
 
-When prompted, assign:
-
-- **O1** and **O2** as the Cover's open/close outputs (these drive the OONO
-  FWD/REV trigger inputs)
-- **S1** and **S2** as the Cover's open/close inputs (these read your wall
-  pushbuttons)
-
-Double-check open maps to open and close maps to close — if they're
-swapped, your wall button will close the skylight when you press "open."
-This is easy to fix in software (see **Swap Inputs** in Step 2) without
-re-wiring, so don't worry if you need to flip it after testing.
-
-## Step 4: Calibrate travel time
+## Step 3: Calibrate travel time
 
 The Shelly's Cover mode uses a calibration routine to learn how long a full
 open-to-close cycle takes, which it then uses to estimate position (0–100%)
@@ -88,12 +74,12 @@ Shelly to report an accurate open/closed percentage rather than just an
 on/off state, which matters once automations (like closing on rain) depend
 on knowing how far open a window actually is.
 
-## Step 5: Understand how end-of-travel is detected
+## Step 4: Understand how end-of-travel is detected
 
 Because this retrofit bypasses the KEM 140's internal PCB (which used to
 house the physical limit switches), the Shelly has no direct signal telling
 it "fully open" or "fully closed." It relies on the **calibrated travel
-time** from Step 4 to know when to stop driving the motor.
+time** from Step 3 to know when to stop driving the motor.
 
 The Shelly 2PM Gen4 documentation describes built-in current-spike /
 obstacle detection that should sense the motor stalling against its
@@ -113,7 +99,7 @@ detection is supposed to allow, and it's a known limitation of the current
 build — see [Limitations](limitations.md) for details and the planned fix
 (external roller-lever micro limit switches).
 
-## Step 6: Test from the app and wall buttons together
+## Step 5: Test from the app and wall buttons together
 
 1. Open and close the skylight from the app; confirm smooth full-travel
    movement and that the app's position indicator ends up at 0%/100% as

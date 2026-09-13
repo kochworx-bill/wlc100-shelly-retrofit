@@ -6,6 +6,8 @@ nav_order: 1
 
 # Reviving a Dead Skylight Controller: WLC 100 → Shelly Retrofit
 
+<img src="docs/images/hero.jpg" alt="WLC 100 to Shelly skylight retrofit" style="float: right; max-width: 320px; width: 40%; margin: 0 0 1rem 1.5rem; border-radius: 6px;">
+
 If your Velux/WindowMaster skylights suddenly stopped responding to their wall
 keypads, and you've traced it back to a dead **WLC 100** controller, you're in
 the right place. This site documents a complete, working retrofit that:

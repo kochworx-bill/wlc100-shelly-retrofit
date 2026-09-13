@@ -38,6 +38,8 @@ windows. This is reflected in the [Parts List](parts-list.md) — the
 per-window quantities aren't just for independent control, they're required
 to avoid this overcurrent condition.
 
+The author does note however, that even with 1 Shelly 2PM GEN4 per window, running more than 1 window at a time, even when they're not starting at the same time, will cause an current overdraw condition and stop both mid-travel.  This may be the Mean Well failing to provide enough amperage or another condition.  For reliable operation the author defaults to operating only one window at a time.  
+
 ## 3. Don't trust wire color at the WLC 100 terminal block
 
 Installer wire colors frequently don't match the diagram molded into the

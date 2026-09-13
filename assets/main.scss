@@ -1,0 +1,40 @@
+---
+---
+
+@import "minima";
+
+// Turn the header nav links into a single-line row of pill-style buttons
+// instead of wrapping text links, so the 8-page menu fits without breaking
+// onto a second line on typical desktop widths.
+.site-nav {
+  .trigger {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .page-link {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 999px;
+    font-size: 0.85rem;
+    line-height: 1.2;
+    margin-left: 0 !important;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.06);
+      text-decoration: none;
+    }
+  }
+}
+
+// On narrow viewports, fall back to the theme's default stacked hamburger
+// menu behavior rather than trying to force the pill row to fit.
+@media screen and (max-width: 900px) {
+  .site-nav .trigger {
+    flex-wrap: wrap;
+  }
+}

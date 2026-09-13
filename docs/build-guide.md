@@ -20,15 +20,11 @@ nav_order: 5
 
   ### Suggestion - Photograph Existing Setup
   A lesson learned is to photograph everything before dismantaling the old WLC-100 
-  and disconnecting wires.  I used small paper labels with string to number the wires
-  and track them in a scratch ledger that I often referred back to when I was
+  and disconnecting wires.  Using small paper labels with string to number the wires, they were tracked in a scratch ledger that was referred back to when
   wiring the new setup.  
 
-  The rain sensor wires will not be used in this setup.  If I get the chance in the 
-  future to figure out how to reuse the rain sensor wires I'll update this design.
+  The rain sensor wires will not be used in this setup.  A rain sensor solution exists with a Shelly Flood device that will be later incorporated in this guidance if successful.  
   
-  I also have 4 windows, but I had 6 wire pairs for motors.  I had to figure out which 
-  wire pairs were actually used through trial and error (my own installation problem.)
 
 ## A note on pacing this project
 
@@ -79,8 +75,7 @@ work — it's much easier to debug one variable at a time.
    a set of screw terminals to run separate +V/−V home runs out to each
    window's Shelly and OONO pair, instead of stacking multiple wires under
    the Mean Well's own output terminals.
-4. Leave the downstream home runs disconnected from everything past the
-   distribution block until you've completed wiring for at least one window
+4. Leave the downstream home runs disconnected from OONO or terminal block if using one until you've completed wiring for at least one window
    and are ready to test.
 
 ## Step 4: Wire one window's Shelly + OONO + motor
@@ -130,7 +125,7 @@ copper conductors you can repurpose as plain momentary-switch wiring:
 
 1. Identify the 3-wire run at both the wall keypad location and the
    controller end.
-2. Use one wire as a shared **common return**, wired to Mean Well −V. (I selected yellow)
+2. Use one wire as a shared **common return**, wired to Mean Well −V. (the author's install selected yellow)
 3. Use the second wire as the **open** signal, wired through your open
    pushbutton to Shelly S1.
 4. Use the third wire as the **close** signal, wired through your close
@@ -164,7 +159,7 @@ entirely.
 4. Briefly test the open and close wall buttons, watching the motor for
    correct, smooth movement in each direction.
 5. If a motor moves the wrong direction, swap the OONO's M1/M2 leads, either at the
-   motor or where the OONO M1/M2 connects to the motor leads (this is why I used a simple terminal block to make the connections).
+   motor or where the OONO M1/M2 connects to the motor leads (this is made easier by using a simple terminal block to make the connections).
 
 On one of the author's windows, swapping the physical leads wasn't the fix
 that ended up being used — the open button was driving the window closed and
@@ -216,7 +211,7 @@ to the next window, repeating Steps 2–7.
 
 ## Author's Completed Control Panel (2 Windows)
 
-This shows my base configuration for 2 windows.  I have a total of 4 windows, and I simply extended this once tested and working. 
+This shows the author's base configuration for 2 windows.  
 
 ![Completed control panel for one window](images/control-panel-complete.jpg)
 
