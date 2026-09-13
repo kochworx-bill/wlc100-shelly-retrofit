@@ -4,22 +4,27 @@ title: Home
 nav_order: 1
 ---
 
-# Reviving a Dead Skylight Controller: WLC 100 → Shelly Retrofit
+# A Self-Documented Solution: Reviving a Dead Skylight Controller (WLC 100 → Shelly Retrofit)
 
 <img src="docs/images/hero.jpg" alt="WLC 100 to Shelly skylight retrofit" style="float: right; max-width: 320px; width: 40%; margin: 0 0 1rem 1.5rem; border-radius: 6px;">
 
-If your Velux/WindowMaster skylights suddenly stopped responding to their wall
-keypads, and you've traced it back to a dead **WLC 100** controller, you're in
-the right place. This site documents a complete, working retrofit that:
+This site is one author's personal, documented account of how they diagnosed
+and worked around a dead **WLC 100** skylight controller on their own
+Velux/WindowMaster skylights. It's shared publicly as an open-source
+reference in case it's useful to someone facing a similar problem — **it is
+not a professional guide, a recommended standard, or the only way to solve
+this**, and following any part of it, stated or implied, is entirely at the
+reader's own risk. See the full [disclaimer](#disclaimer) below.
 
-- Replaces the discontinued WLC 100 controller and its failure-prone power
+What this documented approach covers:
+
+- Replacing the discontinued WLC 100 controller and its failure-prone power
   supply board
-- **Reuses your existing KEM 140 rack-and-pinion motors** — no need to replace
-  the motors or re-run wiring through your ceiling
-- **Reuses your existing wall keypad wiring** as plain signal wires for new
+- Reusing the existing KEM 140 rack-and-pinion motors, without replacing the
+  motors or re-running ceiling wiring
+- Reusing existing wall keypad wiring as plain signal wires for new
   momentary pushbuttons
-- Adds WiFi/Zigbee/Matter smart-home control via a Shelly 2PM Gen4, so you can
-  open and close your skylights from an app, automation, or physical button
+- Adding WiFi/Zigbee/Matter smart-home control via a Shelly 2PM Gen4
 
 ## Why this exists
 
@@ -30,9 +35,12 @@ switches) that can fail independently. When either part dies, the entire
 skylight becomes inoperable — even though the motor itself is often still
 perfectly healthy.
 
-Rather than replacing the motors and rack-and-pinion hardware (expensive and
-invasive), this project bypasses the dead controller and motor PCB, and
-drives the motor directly with modern, inexpensive, off-the-shelf components.
+Rather than replacing the motors and rack-and-pinion hardware, the author
+chose to bypass the dead controller and motor PCB and drive the motor
+directly with off-the-shelf components. This site documents that specific
+approach as-built, for reference only — readers facing similar hardware
+failures may find other approaches that fit their situation, skills, tools,
+or local code requirements better.
 
 ## The author's journey
 
@@ -51,31 +59,54 @@ assistants made it practical to work through diagnosis, parts selection, and
 wiring step by step, rather than needing to already be a WindowMaster
 specialist.
 
-This guide is the result of that process — written so a reader facing the
-same dead controller doesn't have to start from zero the way the author did.
+This site is the result of that process, published as an open-source
+reference for anyone else running into the same discontinued-controller
+dead end — not as a claim that this is the correct or best fix for every
+installation.
 
-## How to use this guide
+## How this documented solution is organized
 
-Work through the pages in order:
+The pages below walk through what the author did, in the order it was done:
 
-1. **[Diagnosis](docs/diagnosis.md)** — Confirm this is actually your problem
-   before buying parts.
-2. **[Parts List](docs/parts-list.md)** — What to buy, and why.
+1. **[Diagnosis](docs/diagnosis.md)** — How the author narrowed down the
+   failure before buying parts.
+2. **[Parts List](docs/parts-list.md)** — What was bought, and why.
 3. **[Architecture](docs/architecture.md)** — How signal and power flow from
-   button/app to motor.
-4. **[Build Guide](docs/build-guide.md)** — Step-by-step wiring and assembly.
-5. **[Shelly Configuration](docs/shelly-configuration.md)** — App/web setup
-   walkthrough, including the one confusing UI step almost everyone misses.
-6. **[Troubleshooting](docs/troubleshooting.md)** — Pitfalls discovered the
-   hard way, so you don't have to repeat them.
-7. **[Limitations](docs/limitations.md)** — What this solution doesn't do
-   (yet), and planned improvements.
+   button/app to motor in this design.
+4. **[Build Guide](docs/build-guide.md)** — The wiring and assembly steps
+   the author followed.
+5. **[Shelly Configuration](docs/shelly-configuration.md)** — The app/web
+   setup the author used, including a confusing UI step that tripped them up.
+6. **[Troubleshooting](docs/troubleshooting.md)** — Pitfalls the author ran
+   into, documented so others can recognize them faster.
+7. **[Limitations](docs/limitations.md)** — What this particular approach
+   doesn't do (yet), and what the author may change in the future.
 
-## ⚠️ Safety Disclaimer
+Each of these pages carries the same reference-only framing as this one —
+they describe what worked (and didn't) for one specific installation, not a
+verified or endorsed procedure.
 
-This is a hobbyist DIY project write-up, **not professional electrical or
-engineering advice**. It involves working with low-voltage DC motor wiring
-and a mains-powered switching supply. Before you touch any wiring:
+## ⚠️ Disclaimer
+{: #disclaimer}
+
+This site documents **one individual's personal, as-built approach** to a
+problem they had with their own equipment. It is published in the spirit of
+open-source knowledge sharing, in case it helps someone else — it is **not**:
+
+- Professional electrical, engineering, or safety advice
+- A recommended, endorsed, or verified procedure
+- The only, best, or safest way to solve this problem
+- A guarantee that the same steps will work, or work safely, for any other
+  installation, hardware revision, jurisdiction, or set of skills
+
+**No warranty.** This content is provided "as is," without warranty of any
+kind, express or implied, including but not limited to accuracy,
+completeness, safety, or fitness for any particular purpose.
+
+**Assumption of risk.** Anyone who chooses to reference, follow, adapt, or
+act on anything described here — stated or implied — does so entirely at
+their own risk. This project involves mains-powered electrical supplies and
+DC motor wiring at height; before touching any wiring:
 
 - **Turn off power** at the breaker or unplug the supply before opening any
   enclosure or making/breaking connections.
@@ -84,8 +115,11 @@ and a mains-powered switching supply. Before you touch any wiring:
 - If you are not comfortable working with electrical wiring, hire a licensed
   electrician. Skylights are often on dedicated circuits at height, adding
   fall-hazard risk on top of electrical risk.
-- Follow your local electrical code. This project is documented as-built for
-  one installation and may not be appropriate for yours.
+- Follow your local electrical code and consult licensed professionals as
+  needed. This project is documented as-built for one installation and may
+  not be appropriate, safe, or legal for any other.
 
-Proceed at your own risk. The author(s) of this guide are not liable for
-damage, injury, or code violations resulting from following it.
+**Limitation of liability.** To the fullest extent permitted by law, the
+author(s) of this site disclaim all liability for any damage, injury, loss,
+or code violation arising from the use of, reliance on, or inability to use
+this content, even if advised of the possibility of such damage.
