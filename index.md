@@ -16,6 +16,8 @@ not a professional guide, a recommended standard, or the only way to solve
 this**, and following any part of it, stated or implied, is entirely at the
 reader's own risk. See the full [disclaimer](#disclaimer) below.
 
+**📖 [View the source code and contribute on GitHub](https://github.com/kochworx-bill/wlc100-shelly-retrofit)**
+
 What this documented approach covers:
 
 - Replacing the discontinued WLC 100 controller and its failure-prone power
