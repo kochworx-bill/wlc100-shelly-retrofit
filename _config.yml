@@ -1,0 +1,34 @@
+title: WLC 100 → Shelly Skylight Retrofit
+description: >-
+  A DIY guide to replacing a dead WindowMaster WLC 100 skylight controller
+  with a Shelly 2PM Gen4 + OONO relay module, reusing the original
+  Velux/WindowMaster KEM 140 motors and existing wiring.
+theme: minima
+
+# GitHub Pages will auto-fill url/baseurl based on repo settings, but
+# setting them explicitly keeps local builds and previews consistent.
+url: "https://kochworx-bill.github.io"
+baseurl: "/wlc100-shelly-retrofit"
+
+# Top navigation (minima reads this list to build the header menu)
+header_pages:
+  - docs/diagnosis.md
+  - docs/parts-list.md
+  - docs/architecture.md
+  - docs/build-guide.md
+  - docs/shelly-configuration.md
+  - docs/troubleshooting.md
+  - docs/limitations.md
+
+minima:
+  skin: auto
+
+plugins:
+  - jekyll-relative-links
+
+jekyll-relative-links:
+  collections: true
+
+markdown: kramdown
+
+show_excerpts: true
