@@ -36,14 +36,21 @@ switches at each sash's fully-open and fully-closed positions, wired to
 provide a hard cutoff independent of the Shelly's timing/current logic.
 This is not yet implemented in this build.
 
-## No rain sensor integration
+## No rain sensor integration (yet)
 
 The original WindowMaster system supported a rain sensor input (the `6`
 terminal on the WLC 100) that could automatically close skylights when
 precipitation was detected. This retrofit does not currently replicate that
-functionality. A future iteration could add a rain sensor and wire it into
-the Shelly's automation logic (e.g. via a script or a home automation
-platform rule), but this is not part of the current build.
+functionality.
+
+The planned path is a Shelly Flood S Gen4 sensor to detect rain and trigger
+the Covers closed automatically. For that automation to close a window to a
+sensible position (rather than just blindly commanding "closed" on a device
+that may already be mid-travel), each Cover needs to have gone through the
+full calibration routine in
+[Shelly Configuration, Step 4](shelly-configuration.md#step-4-calibrate-travel-time)
+so its reported open percentage is accurate — this calibration is the
+remaining prerequisite before rain-triggered automation can be added.
 
 ## Per-window hardware cost
 

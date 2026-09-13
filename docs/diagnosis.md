@@ -61,6 +61,16 @@ which is expected, since these boards are known to burn out with age. This
 confirms the direction of this retrofit (replace the controller and PSU
 entirely) rather than a full motor replacement.
 
+In the author's case, this test was done the hard way: applying bench power
+directly to a dead WLC 100 was enough to get the WLI 130 keypad to drive the
+window **open**, which confirmed the motor and keypad logic were both fine —
+but there was no way to command it closed again without the rest of the
+controller circuit, so a 16-foot ladder and the manual hand crank were still
+needed to close it afterward. If the reader has the option to fully bypass
+the old controller for this test (rather than power it through the original
+board), it's a cleaner way to confirm the same thing without an extra ladder
+trip.
+
 ## Step 4: Test the motor independently of its internal PCB
 
 The KEM 140 motor has its own internal PCB with limit switches. This board

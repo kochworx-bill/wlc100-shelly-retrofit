@@ -32,6 +32,26 @@ Rather than replacing the motors and rack-and-pinion hardware (expensive and
 invasive), this project bypasses the dead controller and motor PCB, and
 drives the motor directly with modern, inexpensive, off-the-shelf components.
 
+## The author's journey
+
+The author's four skylights worked fine for about a decade before one pair
+quietly stopped responding to its wall keypad. At the time, unrelated wall
+work nearby made a damaged wire seem like the obvious culprit, and the
+non-opening windows were shelved as a problem for another day — hand-cranking
+a skylight 16 feet up a cathedral ceiling isn't exactly a weekend chore.
+
+A few years later, with more time at home and more reason to want working
+skylights again, the author went looking for answers and found what a lot of
+WLC 100 owners eventually find: the controller is discontinued, its power
+supply board is a known failure point, and there wasn't a clear off-the-shelf
+replacement. That search stalled for a while, until modern AI coding
+assistants made it practical to work through diagnosis, parts selection, and
+wiring step by step, rather than needing to already be a WindowMaster
+specialist.
+
+This guide is the result of that process — written so a reader facing the
+same dead controller doesn't have to start from zero the way the author did.
+
 ## How to use this guide
 
 Work through the pages in order:

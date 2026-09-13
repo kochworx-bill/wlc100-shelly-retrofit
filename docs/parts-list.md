@@ -12,6 +12,8 @@ block, which are shared across all windows fed from one location. Pricing
 and quantities below are from a real **2-skylight** install — scale wire
 length and per-window items up or down for your own job.
 
+Pricing as of September, 2026
+
 | Item | Price | Qty for 2 Skylights | Link |
 |---|---|---|---|
 | Mean Well LRS-100-24 (24V DC, 4.5A, 108W switching power supply) | $18.99 | 1 shared | [Amazon](https://a.co/d/01V15kK7) |

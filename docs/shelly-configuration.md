@@ -77,6 +77,17 @@ between fully open and fully closed.
    real calibrated time for this window, so the limit isn't cutting travel
    short.
 
+Before using the Shelly's own calibration routine, the author's first pass at
+setting these times was manual: a second phone's stopwatch was started when
+the open command was sent from the app and stopped when the window reached
+full travel, with the same value entered as the time limit for both
+directions (padding the close time slightly "just to make sure"). That
+approach is enough to get a window moving reliably, but it's still worth
+running the formal calibration in this step afterward — it's what allows the
+Shelly to report an accurate open/closed percentage rather than just an
+on/off state, which matters once automations (like closing on rain) depend
+on knowing how far open a window actually is.
+
 ## Step 5: Understand how end-of-travel is detected
 
 Because this retrofit bypasses the KEM 140's internal PCB (which used to
