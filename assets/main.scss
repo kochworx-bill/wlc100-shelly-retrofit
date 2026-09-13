@@ -3,6 +3,30 @@
 
 @import "minima";
 
+// Project accent palette: slate/amber, echoing the retrofit's
+// power-supply-blue and relay-amber wiring diagram colors.
+$brand-dark: #1e293b;
+$brand-accent: #d97706;
+$brand-accent-light: #fef3c7;
+
+// Site header: dark banner instead of minima's plain white bar, so the
+// title/nav reads as a distinct "site chrome" band above the content.
+.site-header {
+  background: $brand-dark;
+  border-top: none;
+  border-bottom: 3px solid $brand-accent;
+}
+
+.site-title,
+.site-title:visited {
+  color: #fff !important;
+  font-weight: 700;
+}
+
+.site-nav .menu-icon svg path {
+  fill: #fff;
+}
+
 // Turn the header nav links into a single-line row of pill-style buttons
 // instead of wrapping text links, so the 8-page menu fits without breaking
 // onto a second line on typical desktop widths.
@@ -14,18 +38,21 @@
     gap: 0.4rem;
   }
 
-  .page-link {
+  .page-link,
+  .page-link:visited {
     display: inline-block;
     white-space: nowrap;
-    padding: 0.3rem 0.7rem;
-    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 0.35rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 999px;
     font-size: 0.85rem;
     line-height: 1.2;
     margin-left: 0 !important;
+    color: #fff !important;
 
     &:hover {
-      background: rgba(0, 0, 0, 0.06);
+      background: $brand-accent;
+      border-color: $brand-accent;
       text-decoration: none;
     }
   }
@@ -37,4 +64,70 @@
   .site-nav .trigger {
     flex-wrap: wrap;
   }
+}
+
+// Content area: slightly warmer page background and card-like content
+// panel, rather than plain white-on-white.
+body {
+  background: #f8f7f4;
+}
+
+.page-content .wrapper {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+// Headings and links pick up the accent color instead of minima's default
+// link blue, and h2s get a subtle accent underline to mark section breaks.
+a {
+  color: $brand-accent;
+}
+
+h1, h2, h3 {
+  color: $brand-dark;
+}
+
+h2 {
+  border-bottom: 2px solid $brand-accent-light;
+  padding-bottom: 0.3rem;
+}
+
+// Tables (wiring tables, parts lists) get a bit more visual structure than
+// minima's default bare table.
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th {
+  background: $brand-dark;
+  color: #fff;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+}
+
+table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+table tr:nth-child(even) td {
+  background: #faf9f7;
+}
+
+// Blockquotes (used for callout notes) get an accent-colored left border
+// instead of the default gray.
+blockquote {
+  border-left: 4px solid $brand-accent;
+  background: $brand-accent-light;
+  padding: 0.75rem 1rem;
+  color: $brand-dark;
+}
+
+.site-footer {
+  border-top: 1px solid #e5e5e5;
 }
