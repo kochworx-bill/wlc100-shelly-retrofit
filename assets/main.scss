@@ -74,10 +74,10 @@ $brand-accent-light: #fef3c7;
     }
   }
 
-  // "Home" is always the first pill in the trigger row (see
-  // _includes/header.html) — give it a filled accent style so it reads as
-  // the primary/anchor action distinct from the page links.
-  .trigger .page-link:first-child {
+  // The nav link matching the currently viewed page (see the `active` class
+  // added conditionally in _includes/header.html) gets a filled accent
+  // style so it's clear which page is currently open.
+  .trigger .page-link.active {
     background: $brand-accent;
     border-color: $brand-accent;
     font-weight: 700;
