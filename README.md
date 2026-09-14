@@ -23,7 +23,8 @@ This repo is a Jekyll site published via GitHub Pages. It documents:
   full wiring table
 - [Build Guide](docs/build-guide.md) — step-by-step wiring and assembly
 - [Shelly Configuration](docs/shelly-configuration.md) — app/web setup
-  walkthrough, including Cover mode setup and calibration
+  walkthrough, including Cover mode setup and why Shelly's calibration
+  routine cannot succeed on this build's relay-mediated wiring
 - [Troubleshooting](docs/troubleshooting.md) — known pitfalls and fixes
 - [Limitations](docs/limitations.md) — known limitations and planned
   improvements
