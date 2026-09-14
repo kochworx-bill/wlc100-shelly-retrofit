@@ -57,42 +57,45 @@ swapped, your wall button will close the skylight when you press "open."
 This is easy to fix in software (see **Reverse Directions** in Step 2)
 without re-wiring, so don't worry if you need to flip it after testing.
 
-## Step 4: Calibrate travel time
+## Step 4: Set travel time (calibration will not succeed on this build)
 
-The Shelly's Cover mode uses a calibration routine to learn how long a full
-open-to-close cycle takes, which it then uses to estimate position (0–100%)
-between fully open and fully closed.
+> **Calibration will fail on this build, and that's expected.** This
+> build's architecture routes the Shelly's O1/O2 outputs through an OONO
+> F-1020 relay module before reaching the motor. The Shelly can only
+> monitor power on its own output (the relay coil), not the actual motor
+> current on the far side of the relay — and Shelly's calibration routine
+> requires motor power monitoring to detect end-of-travel. Per Shelly's own
+> documentation, calibration fails whenever the Cover controls a motor
+> "via intermediate switches, contactors, etc." This is a permanent
+> limitation of this design, not a configuration mistake — don't spend time
+> troubleshooting a calibration failure here. See
+> [Limitations](limitations.md#position-tracking-is-not-available-on-this-build)
+> for the full explanation.
 
-1. In the Cover component's settings, run the calibration/limit-setting
-   routine (naming varies slightly by firmware version, look for
-   "Calibrate" or "Set limits").
-2. Let the motor run a full open and full close cycle uninterrupted during
-   calibration.
-3. Expect a measured travel time in the neighborhood of **16–17 seconds**
-   (the reference build's windows calibrated to 16s, 16.5s, and 16.9s),
-   though this will vary slightly window to window depending on sash size
-   and mechanical friction. Consistency between open and close times for the
-   same window is a good sign of healthy mechanics.
-4. Revisit the **Movement Time Limits** value from Step 2 once you know the
-   real calibrated time for this window, so the limit isn't cutting travel
-   short.
+Because the Shelly's own calibration routine cannot succeed on this
+topology, travel time has to be set manually instead:
 
-> **Only calibrate one window at a time.** Running more than one window's
-> motor simultaneously — even when each has its own Shelly and OONO — has
-> been observed to cause an overcurrent condition that stops both mid-travel
+1. Start a stopwatch (a second phone works well) the moment you send the
+   **Open** command from the app, and stop it the moment the window reaches
+   full travel. Repeat for **Close**.
+2. Enter the measured time as the **Movement Time Limit** for that
+   direction (see Step 2), padding slightly — the reference build's windows
+   landed around **16, 16.5, and 16.9 seconds**, with the close time padded
+   a bit "just to make sure."
+3. This time limit is a blind timer cutoff, not a position measurement — the
+   Shelly does not know where the window physically is partway through a
+   move, only how long it's been running the motor.
+
+> **Position percentage (0–100%) is not available on this build.** Only
+> Open/Stop/Close commands work, each bounded by the Movement Time Limit
+> set above. Any automation or dashboard expecting a Shelly-reported open
+> percentage will not get one here.
+
+> **Only run one window at a time.** Running more than one window's motor
+> simultaneously — even when each has its own Shelly and OONO — has been
+> observed to cause an overcurrent condition that stops both mid-travel
 > (see [Troubleshooting](troubleshooting.md#2-overcurrent-trip-from-wiring-two-motors-to-one-shelly-output)).
-> Calibrating one window at a time avoids running into this during setup.
-
-Before using the Shelly's own calibration routine, the author's first pass at
-setting these times was manual: a second phone's stopwatch was started when
-the open command was sent from the app and stopped when the window reached
-full travel, with the same value entered as the time limit for both
-directions (padding the close time slightly "just to make sure"). That
-approach is enough to get a window moving reliably, but it's still worth
-running the formal calibration in this step afterward — it's what allows the
-Shelly to report an accurate open/closed percentage rather than just an
-on/off state, which matters once automations (like closing on rain) depend
-on knowing how far open a window actually is.
+> This applies when setting travel times and during normal use.
 
 ## Step 5: Understand how end-of-travel is detected
 
@@ -119,11 +122,19 @@ detection is supposed to allow, and it's a known limitation of the current
 build — see [Limitations](limitations.md) for details and the planned fix
 (external roller-lever micro limit switches).
 
+Because there is no calibration and no position percentage (Step 4), **this
+soft-cutoff behavior happens on every single Close command that runs the
+full time limit** — not just as a rare edge case. This includes commands
+sent automatically by an automation (e.g. closing on rain) with no human
+present to notice the strain. See
+[Limitations](limitations.md#no-rain-sensor-integration-yet) for why this
+matters specifically for automated closes.
+
 ## Step 6: Test from the app and wall buttons together
 
 1. Open and close the skylight from the app; confirm smooth full-travel
-   movement and that the app's position indicator ends up at 0%/100% as
-   expected.
+   movement in both directions and correct behavior of the Open/Stop/Close
+   commands (there is no position percentage to check — see Step 4).
 2. Test the physical wall buttons again now that Cover mode is configured,
    confirming they still behave correctly.
 3. If you're integrating with a smart home platform (Matter, Zigbee, etc.),

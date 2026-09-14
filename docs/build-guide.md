@@ -173,18 +173,17 @@ Either fix works; the reader doesn't need to do both.
 
 With hardware verified working via manual button presses, head to
 [Shelly Configuration](shelly-configuration.md) to set up Cover mode,
-assign inputs/outputs, and calibrate travel time so the app and automations
-work correctly.
+assign inputs/outputs, and set travel time limits so the app and
+automations work correctly. Note that Shelly's own calibration routine
+cannot succeed on this build's wiring topology — see
+[Shelly Configuration, Step 4](shelly-configuration.md#step-4-set-travel-time-calibration-will-not-succeed-on-this-build)
+for why, and how travel time is set manually instead.
 
 ## Step 8: Close up and repeat
 
-Once a window's Cover component is calibrated and tested from the app,
-button, and any automations you plan to use, secure the enclosure and move
-to the next window, repeating Steps 2–7.
-
-## Appendix
-
-### Wiring Summary Table
+Once a window's Cover component has its travel time set and is tested from
+the app, button, and any automations you plan to use, secure the enclosure
+and move to the next window, repeating Steps 2–7.
 
 | From | To |
 |---|---|
