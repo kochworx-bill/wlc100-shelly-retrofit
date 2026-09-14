@@ -4,6 +4,9 @@ title: Troubleshooting
 permalink: /docs/troubleshooting/
 nav_order: 7
 icon: /docs/images/troubleshooting-icon.jpg
+description: >-
+  Known pitfalls and fixes discovered while retrofitting a WLC 100 skylight
+  controller with a Shelly 2PM Gen4 and OONO relay module.
 ---
 
 # Troubleshooting: Known Pitfalls and Fixes

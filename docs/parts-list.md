@@ -4,6 +4,9 @@ title: Parts List
 permalink: /docs/parts-list/
 nav_order: 3
 icon: /docs/images/parts-list-icon.jpg
+description: >-
+  Bill of materials for the WLC 100 to Shelly retrofit: Mean Well LRS-100-24,
+  Shelly 2PM Gen4, OONO F-1020 relay, wiring, and pricing.
 ---
 
 # Bill of Materials

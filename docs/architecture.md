@@ -4,6 +4,9 @@ title: Architecture
 permalink: /docs/architecture/
 nav_order: 4
 icon: /docs/images/architecture-icon.jpg
+description: >-
+  System overview and full wiring table for the Shelly 2PM Gen4 + OONO
+  F-1020 skylight motor retrofit, including DC polarity notes.
 ---
 
 # System Overview and Signal Path

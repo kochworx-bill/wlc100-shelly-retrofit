@@ -4,6 +4,9 @@ title: Shelly Configuration
 permalink: /docs/shelly-configuration/
 nav_order: 6
 icon: /docs/images/shelly-config-icon.jpg
+description: >-
+  Shelly app/web Cover mode setup walkthrough for skylight motor control,
+  including why calibration fails on OONO relay-mediated wiring.
 ---
 
 # Shelly App/Web Setup Walkthrough

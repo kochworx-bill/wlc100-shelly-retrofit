@@ -4,6 +4,9 @@ title: Limitations
 permalink: /docs/limitations/
 nav_order: 8
 icon: /docs/images/limitations-icon.jpg
+description: >-
+  Known limitations of this WLC 100 to Shelly skylight retrofit, including
+  missing position tracking and planned rain-sensor automation.
 ---
 
 # Known Limitations and Future Improvements

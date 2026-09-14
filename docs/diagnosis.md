@@ -4,6 +4,9 @@ title: Diagnosis
 permalink: /docs/diagnosis/
 nav_order: 2
 icon: /docs/images/diagnosis-icon.jpg
+description: >-
+  How to confirm a dead WindowMaster WLC 100 controller and KEM 140 motor
+  are the actual cause of a non-responsive skylight, before buying parts.
 ---
 
 # Diagnosis: Is This Actually Your Problem?

@@ -4,6 +4,9 @@ title: Build Guide
 permalink: /docs/build-guide/
 nav_order: 5
 icon: /docs/images/build-guide-icon.jpg
+description: >-
+  Step-by-step wiring and assembly notes for retrofitting a dead WLC 100
+  skylight controller with a Shelly 2PM Gen4 and OONO relay module.
 ---
 
 # Build Guide: Wiring and Assembly
